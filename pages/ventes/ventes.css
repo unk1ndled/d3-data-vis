@@ -1,0 +1,125 @@
+body {
+  font-family: "Montserrat";
+  box-sizing: border-box;
+  overflow-x :hidden;
+  background-color: black;
+}
+
+.custom-weight {
+  font-weight: 900;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  color: #FA1010;
+  margin-bottom: 30px;
+}
+
+.chart-container {
+  background: #2d2d2d;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #282828;
+  width: 100%;
+  margin: 20px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.chart-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+
+}
+
+.controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+select,
+button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  background: #FA1010;
+  color: #1a1a1a;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+select:hover,
+button:hover {
+  background: #29b6f6;
+}
+
+.tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  border: 1px solid #FA1010;
+}
+
+.axis text {
+  fill: #fff;
+  font-size: 12px;
+}
+
+.axis path,
+.axis line {
+  stroke: #666;
+}
+
+.bar {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.bar:hover {
+  stroke: #FA1010;
+  stroke-width: 2px;
+}
+
+.circle {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.circle:hover {
+  stroke: #FA1010;
+  stroke-width: 3px;
+}
+
+.legend {
+  font-size: 12px;
+}
+
+.grid line {
+  stroke: #444;
+  stroke-dasharray: 3, 3;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+
+#barChart,
+#areaChart,
+#pieChart,
+#scatterPlot {
+  width: 100%;
+  height: 500px; /* augmente la hauteur */
+}

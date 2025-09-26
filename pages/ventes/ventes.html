@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ventes Jeux Vidéos</title>
+    <link rel="stylesheet" href="ventes.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -16,8 +24,61 @@
         },
       };
     </script>
+    <script type="module" src="ventes.js"></script>
   </head>
   <body>
-    <h1 class="text-3xl font-bold underline">Hello world!</h1>
+    <main
+      class="flex justify-center items-center w-screen bg-gradient-to-r from-[#362827] to-[#FA1010] h-[50rem] relative items-start"
+    >
+      <p class="custom-weight text-white text-[180px] absolute top-0">VENTES</p>
+      <img
+        src="../../assets/images/vente_img.png"
+        width="1200"
+        height="1000"
+        class="absolute bottom-0"
+      />
+    </main>
+    <div class="container">
+      <h1 class="text-white text-3xl custom-weight py-4">Analyse des Ventes de Jeux Vidéo</h1>
+      <p class="text-center text-white"> Les données des ventes de jeux vidéos affichées à travers différents graphiques</p>
+
+      <!-- Graphique en barres -->
+      <div class="chart-container">
+        <div class="chart-title text-white font-bold">Top 20 des Jeux par Ventes Globales</div>
+        <div class="controls">
+          <select id="regionSelect">
+            <option value="Global_Sales">Ventes Globales</option>
+            <option value="NA_Sales">Amérique du Nord</option>
+            <option value="EU_Sales">Europe</option>
+            <option value="JP_Sales">Japon</option>
+            <option value="Other_Sales">Autres Régions</option>
+          </select>
+          <button onclick="sortBars()" class="text-white">Trier</button>
+        </div>
+        <div id="barChart"></div>
+      </div>
+
+      <!-- Graphique en aires empilées -->
+      <div class="chart-container">
+        <div class="chart-title text-white">
+          Évolution des Ventes par Région dans le Temps
+        </div>
+        <div id="areaChart"></div>
+      </div>
+
+      <!-- Graphique en secteurs -->
+      <div class="chart-container">
+        <div class="chart-title text-white">Répartition des Ventes par Genre</div>
+        <div id="pieChart"></div>
+      </div>
+
+      <!-- Nuage de points -->
+      <div class="chart-container">
+        <div class="chart-title text-white">Corrélation Ventes NA vs EU</div>
+        <div id="scatterPlot"></div>
+      </div>
+    </div>
+
+    <div class="tooltip" id="tooltip"></div>
   </body>
 </html>
