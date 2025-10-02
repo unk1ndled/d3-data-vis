@@ -11,6 +11,8 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/common/nav.css" />
+
     <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -25,8 +27,14 @@
       };
     </script>
     <script type="module" src="ventes.js"></script>
+    <script src="/common/nav.js"></script>
   </head>
   <body>
+    <header>
+      <!-- Global nav will be injected here -->
+      <div id="navbar"></div>
+    </header>
+
     <main
       class="flex justify-center items-center w-screen bg-gradient-to-r from-[#362827] to-[#FA1010] h-[50rem] relative items-start"
     >
@@ -39,12 +47,19 @@
       />
     </main>
     <div class="container">
-      <h1 class="text-white text-3xl custom-weight py-4">Analyse des Ventes de Jeux Vidéo</h1>
-      <p class="text-center text-white"> Les données des ventes de jeux vidéos affichées à travers différents graphiques</p>
+      <h1 class="text-white text-3xl custom-weight py-4">
+        Analyse des Ventes de Jeux Vidéo
+      </h1>
+      <p class="text-center text-white">
+        Les données des ventes de jeux vidéos affichées à travers différents
+        graphiques
+      </p>
 
       <!-- Graphique en barres -->
       <div class="chart-container">
-        <div class="chart-title text-white font-bold">Top 20 des Jeux par Ventes Globales</div>
+        <div class="chart-title text-white font-bold">
+          Top 20 des Jeux par Ventes Globales
+        </div>
         <div class="controls">
           <select id="regionSelect">
             <option value="Global_Sales">Ventes Globales</option>
@@ -68,7 +83,9 @@
 
       <!-- Graphique en secteurs -->
       <div class="chart-container">
-        <div class="chart-title text-white">Répartition des Ventes par Genre</div>
+        <div class="chart-title text-white">
+          Répartition des Ventes par Genre
+        </div>
         <div id="pieChart"></div>
       </div>
 

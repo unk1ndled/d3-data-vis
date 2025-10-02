@@ -1,24 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>D3 Project</title>
-</head>
-<body>
-  <header>
-    <h1>My Videogame Project</h1>
-    <nav>
-      <a href="pages/steam/steam.html">steam</a>
-      <a href="pages/twitch/twitch.html">twith</a>
-      <a href="pages/ventes/ventes.html">steam</a>
-    </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <title>D3 Gaming Project</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="common/nav.css" />
+  </head>
+  <body>
+    <header>
+      <!-- Nav will be loaded dynamically -->
+      <div id="navbar"></div>
+      <div class="hero">
+        <h1>D3 Gaming Visualizations</h1>
+        <p>
+          Explore interactive charts and stats from your favorite games.
+          Visualize trends, track data, and level up your insights!
+        </p>
+        <a href="#main" class="cta-button">Get Started</a>
+      </div>
+    </header>
 
+    <main id="main">
+      <section class="intro">
+        <h2>Welcome Gamer!</h2>
+        <p>
+          This project showcases interactive D3.js visualizations designed for
+          gamers. Dive into data from platforms like Steam and Twitch, track
+          game trends, and discover insights like never before. Navigate using
+          the menu above and start exploring your gaming world!
+        </p>
+      </section>
 
-  <footer>
-    <p>&copy; 2025 My Videogame Project</p>
-  </footer>
+      <section class="features">
+        <h2>What You Can Explore</h2>
+        <ul>
+          <li>Steam game stats and trends</li>
+          <li>Twitch live stream analytics</li>
+          <li>Top-selling games & sales data</li>
+          <li>Interactive charts to visualize your gaming universe</li>
+        </ul>
+      </section>
+    </main>
 
-</body>
-<!-- test alall -->
+    <footer>
+      <p>&copy; 2025 INFO5</p>
+    </footer>
+
+    <script src="common/nav.js"></script>
+  </body>
 </html>

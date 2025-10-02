@@ -1,29 +1,183 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 40px;
-    background: #f5f5f5;
-  }
-  
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  #chart {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .bar {
-    fill: steelblue;
-  }
-  
-  .bar:hover {
-    fill: orange;
-  }
-  
-  .axis-label {
-    font-size: 14px;
-    font-weight: bold;
-  }
-  
+       body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #66c0f4;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            color: #acb2b9;
+            font-size: 1.1em;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #2a2a2a;
+            border-radius: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        label {
+            color: #acb2b9;
+            font-weight: 600;
+        }
+        
+        select, input[type="range"] {
+            background: #3c3c3c;
+            color: #fff;
+            border: 1px solid #555;
+            border-radius: 5px;
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+        
+        select:focus, input[type="range"]:focus {
+            outline: none;
+            border-color: #66c0f4;
+        }
+        
+        input[type="range"] {
+            width: 200px;
+        }
+        
+        .range-values {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .range-value {
+            background: #66c0f4;
+            color: #1a1a1a;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        .chart-container {
+            position: relative;
+            background: #2a2a2a;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        #chart {
+            width: 100%;
+            height: auto;
+        }
+        
+        .axis {
+            color: #acb2b9;
+        }
+        
+        .axis line, .axis path {
+            stroke: #555;
+        }
+        
+        .axis text {
+            fill: #acb2b9;
+            font-size: 12px;
+        }
+        
+        .axis-label {
+            fill: #acb2b9;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        #tooltip {
+            position: absolute;
+            padding: 12px;
+            background: rgba(42, 42, 42, 0.95);
+            border: 1px solid #555;
+            border-radius: 8px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            font-size: 13px;
+            line-height: 1.4;
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+        }
+        
+        #loading {
+            text-align: center;
+            color: #66c0f4;
+            font-size: 18px;
+            padding: 50px;
+        }
+        
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+            color: #acb2b9;
+            font-size: 14px;
+        }
+        
+        svg.dragging {
+            cursor: grabbing !important;
+        }
+        
+        svg {
+            cursor: grab;
+        }
+        
+        circle {
+            transition: stroke-width 0.2s, opacity 0.2s;
+        }
+        
+        circle:hover {
+            cursor: pointer;
+        }

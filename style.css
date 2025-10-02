@@ -1,0 +1,87 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: #111; /* dark theme to match navbar */
+  color: #eee;
+  line-height: 1.6;
+}
+
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #000, #222);
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ff9800;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background: #ff9800;
+  color: #111;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.cta-button:hover {
+  background: #e68a00;
+  transform: translateY(-2px);
+}
+
+/* Main content */
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #1a1a1a;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  color: #eee;
+}
+
+main h2 {
+  color: #ff9800;
+  margin-bottom: 1rem;
+}
+
+main p, main li {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.features ul {
+  list-style: disc inside;
+}
+
+.features li {
+  margin-bottom: 0.5rem;
+}
+
+/* Footer */
+footer {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-top: 3px solid #ff9800;
+}

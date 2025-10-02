@@ -2,12 +2,105 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Game Price Evolution</title>
+    <title>Steam Games Analysis</title>
+    <link rel="stylesheet" href="/common/nav.css" />
+
     <link rel="stylesheet" href="steam.css" />
   </head>
   <body>
-    <h1>Game Price Evolution Histogram</h1>
-    <div id="chart"></div>
-    <script src="steam.js"></script>
+    <header>
+      <!-- Global nav will be injected here -->
+      <div id="navbar"></div>
+    </header>
+
+    <main>
+      <div class="container">
+        <div class="header">
+          <h1>Steam Games Analysis</h1>
+          <p class="subtitle">
+            Interactive scatter plot showing price vs playtime, colored by
+            ratings
+          </p>
+        </div>
+
+        <div class="controls">
+          <div class="control-group">
+            <label for="yearFilter">Release Year:</label>
+            <select id="yearFilter">
+              <option value="all">All Years</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label>Year Range:</label>
+            <input
+              type="range"
+              id="yearRangeMin"
+              min="1997"
+              max="2024"
+              value="1997"
+            />
+            <div class="range-values">
+              <span class="range-value" id="minYearDisplay">1997</span>
+              <span>to</span>
+              <span class="range-value" id="maxYearDisplay">2024</span>
+            </div>
+            <input
+              type="range"
+              id="yearRangeMax"
+              min="1997"
+              max="2024"
+              value="2024"
+            />
+          </div>
+
+          <div class="control-group">
+            <label for="priceFilter">Max Price:</label>
+            <select id="priceFilter">
+              <option value="all">All Prices</option>
+              <option value="5">Under $5</option>
+              <option value="10">Under $10</option>
+              <option value="20">Under $20</option>
+              <option value="50">Under $50</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="chart-container">
+          <div id="loading">Loading Steam data...</div>
+          <div id="chart"></div>
+          <div id="tooltip"></div>
+        </div>
+
+        <div class="stats">
+          <span id="gameCount">Games displayed: 0</span>
+          <span id="avgPrice">Average price: $0</span>
+          <span id="avgRating">Average rating: 0%</span>
+        </div>
+
+        <div class="legend">
+          <div class="legend-item">
+            <div class="legend-color" style="background: #ff4757"></div>
+            <span>Poor ratings (0-50%)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background: #ffa502"></div>
+            <span>Mixed ratings (50-75%)</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background: #2ed573"></div>
+            <span>Good ratings (75-100%)</span>
+          </div>
+          <div class="legend-item">
+            <span>Size = Number of owners</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Global nav script -->
+    <script src="/common/nav.js"></script>
+    <!-- Page-specific script -->
+    <script type="module" src="steam.js"></script>
   </body>
 </html>

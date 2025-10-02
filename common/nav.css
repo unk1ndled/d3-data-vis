@@ -1,0 +1,60 @@
+/* Navbar container */
+nav {
+  display: flex;
+  justify-content: center; /* Center links */
+  align-items: center;
+  background-color: #111; /* Darker background */
+  padding: 0.75rem 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Navbar links */
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Hover and active link effects */
+nav a:hover,
+nav a.active {
+  color: #ff9800;
+}
+
+/* Optional underline animation */
+nav a::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+  background: #ff9800;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+
+  nav a {
+    margin: 10px 0;
+  }
+}
