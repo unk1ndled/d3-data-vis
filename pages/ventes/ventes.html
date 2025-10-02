@@ -28,10 +28,118 @@
     </script>
     <script type="module" src="ventes.js"></script>
     <script src="/common/nav.js"></script>
+    <style>
+      .analysis-section {
+        width: 100%;
+      
+        padding: 60px 20px;
+        color: #fff;
+      }
+      .analysis-container {
+        width: 83%;
+        margin: 52px;
+        margin: 0 auto;
+      }
+      .analysis-block {
+        background: #2d2d2d;
+        padding: 30px;
+        margin-bottom: 30px;
+        border-radius: 12px;
+        border-left: 4px solid #fffff;
+        width: 100%;
+      }
+      .analysis-block h2 {
+        color: #fffff;
+        font-size: 1.8em;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+      .analysis-block h3 {
+        color: #fffff;
+        font-size: 1.3em;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+      .analysis-block p,
+      .analysis-block li {
+        line-height: 1.8;
+        color: #ccc;
+        margin-bottom: 15px;
+      }
+      .analysis-block ul {
+        padding-left: 25px;
+      }
+      .analysis-block li {
+        margin-bottom: 10px;
+      }
+      .highlight-box {
+        background: #3a3a3a;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+        border-left: 3px solid #48bb78;
+      }
+      .pros-cons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 20px;
+      }
+      .pros,
+      .cons {
+        background: #3a3a3a;
+        padding: 20px;
+        border-radius: 8px;
+      }
+      .pros {
+        border-left: 3px solid #48bb78;
+      }
+      .cons {
+        border-left: 3px solid #fffff;
+      }
+      .pros h4 {
+        color: #48bb78;
+        margin-bottom: 15px;
+      }
+      .cons h4 {
+        color: #fffff;
+        margin-bottom: 15px;
+      }
+      .mckinley-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background: #2d2d2d;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .mckinley-table th,
+      .mckinley-table td {
+        padding: 12px;
+        text-align: center;
+        border: 1px solid #444;
+        color: #ddd;
+      }
+      .mckinley-table th {
+        background: #3a3a3a;
+        font-weight: 600;
+      }
+      .mckinley-table td.row-header {
+        background: #3a3a3a;
+        font-weight: 600;
+        text-align: left;
+        padding-left: 15px;
+      }
+      @media (max-width: 768px) {
+        .pros-cons {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
   <body>
     <header>
-      <!-- Global nav will be injected here -->
       <div id="navbar"></div>
     </header>
 
@@ -46,6 +154,7 @@
         class="absolute bottom-0"
       />
     </main>
+
     <div class="container">
       <h1 class="text-white text-3xl custom-weight py-4">
         Analyse des Ventes de Jeux Vidéo
@@ -55,7 +164,6 @@
         graphiques
       </p>
 
-      <!-- Graphique en barres -->
       <div class="chart-container">
         <div class="chart-title text-white font-bold">
           Top 20 des Jeux par Ventes Globales
@@ -73,7 +181,6 @@
         <div id="barChart"></div>
       </div>
 
-      <!-- Graphique en aires empilées -->
       <div class="chart-container">
         <div class="chart-title text-white">
           Évolution des Ventes par Région dans le Temps
@@ -81,7 +188,6 @@
         <div id="areaChart"></div>
       </div>
 
-      <!-- Graphique en secteurs -->
       <div class="chart-container">
         <div class="chart-title text-white">
           Répartition des Ventes par Genre
@@ -89,7 +195,6 @@
         <div id="pieChart"></div>
       </div>
 
-      <!-- Nuage de points -->
       <div class="chart-container">
         <div class="chart-title text-white">Corrélation Ventes NA vs EU</div>
         <div id="scatterPlot"></div>
@@ -97,5 +202,336 @@
     </div>
 
     <div class="tooltip" id="tooltip"></div>
+
+    <!-- SECTION ANALYSE -->
+    <section class="analysis-section">
+      <div class="analysis-container">
+        <div class="analysis-block">
+          <h2>1. Contexte et Objectif de la Visualisation</h2>
+          <p>
+            Cette visualisation interactive analyse les ventes mondiales de jeux
+            vidéo à travers quatre graphiques complémentaires. L'objectif
+            principal est de permettre une exploration multidimensionnelle du
+            marché du jeu vidéo en révélant :
+          </p>
+          <ul>
+            <li>
+              <strong>Les performances commerciales</strong> des titres les plus
+              vendus
+            </li>
+            <li>
+              <strong>L'évolution temporelle</strong> des ventes par région
+              géographique
+            </li>
+            <li>
+              <strong>La répartition sectorielle</strong> par genre de jeu
+            </li>
+            <li><strong>Les corrélations régionales</strong> entre marchés</li>
+          </ul>
+          <p>
+            Le dashboard s'adresse à des analystes de marché, éditeurs de jeux
+            ou investisseurs cherchant à comprendre les dynamiques de
+            l'industrie vidéoludique.
+          </p>
+        </div>
+
+        <div class="analysis-block">
+          <h3>Variables du dataset</h3>
+          <ul>
+            <li><strong>Rank</strong> : Classement du jeu</li>
+            <li><strong>Name</strong> : Titre du jeu</li>
+            <li>
+              <strong>Genre</strong> : Catégorie (Action, Sports, RPG, etc.)
+            </li>
+            <li>
+              <strong>Platform</strong> : Console/plateforme de distribution
+            </li>
+            <li><strong>Year</strong> : Année de sortie</li>
+            <li>
+              <strong>Ventes régionales</strong> : NA_Sales, EU_Sales, JP_Sales,
+              Other_Sales (en millions)
+            </li>
+            <li><strong>Global_Sales</strong> : Total des ventes mondiales</li>
+          </ul>
+
+          <h3>Graphique en barres (Top 20)</h3>
+          <div class="highlight-box">
+            <p><span class="graph-badge badge-bar">BARRES</span></p>
+            <p>
+              <strong>Variable quantitative :</strong> Ventes par région
+              (sélectionnable)
+            </p>
+            <p><strong>Variable catégorielle :</strong> Nom du jeu</p>
+            <p>
+              <strong>Justification :</strong> Permet une comparaison directe et
+              immédiate des performances. Les barres verticales facilitent la
+              lecture des valeurs et le classement visuel. L'utilisation de
+              couleurs par genre enrichit l'information sans surcharger.
+            </p>
+          </div>
+
+          <h3>Graphique en aires empilées</h3>
+          <div class="highlight-box">
+            <p><span class="graph-badge badge-area">AIRES</span></p>
+            <p><strong>Variable temporelle :</strong> Année (axe X)</p>
+            <p>
+              <strong>Variables quantitatives empilées :</strong> Ventes par
+              région (NA, EU, JP, Other)
+            </p>
+            <p>
+              <strong>Justification :</strong> Idéal pour montrer l'évolution
+              dans le temps et la contribution de chaque région au total.
+              L'empilement révèle à la fois les tendances individuelles et
+              globales. La courbe cardinal adoucit les variations.
+            </p>
+          </div>
+
+          <h3>Diagramme circulaire</h3>
+          <div class="highlight-box">
+            <p><span class="graph-badge badge-pie">SECTEURS</span></p>
+            <p><strong>Variable catégorielle :</strong> Genre de jeu</p>
+            <p><strong>Variable quantitative :</strong> Ventes globales</p>
+            <p>
+              <strong>Justification :</strong> Efficace pour visualiser les
+              parts de marché. Bien que critiqué en visualisation de données, il
+              reste pertinent ici pour un nombre limité de catégories et une
+              compréhension intuitive des proportions.
+            </p>
+          </div>
+
+          <h3>Nuage de points</h3>
+          <div class="highlight-box">
+            <p><span class="graph-badge badge-scatter">SCATTER</span></p>
+            <p><strong>Axes X et Y :</strong> Ventes NA vs EU</p>
+            <p>
+              <strong>Taille des bulles :</strong> Ventes globales
+              (√Global_Sales × 0.8)
+            </p>
+            <p><strong>Couleur :</strong> Genre</p>
+            <p>
+              <strong>Justification :</strong> Révèle les corrélations entre
+              deux marchés majeurs. La taille variable ajoute une troisième
+              dimension d'analyse. Permet d'identifier les jeux performants sur
+              un marché mais pas l'autre.
+            </p>
+          </div>
+        </div>
+
+        <div class="analysis-block">
+          <h2>3. Interactions</h2>
+          <ul>
+            <li>Tooltips affichant des informations détaillées.</li>
+            <li>Filtrage par région et tri dynamique (barres).</li>
+            <li>Transitions animées pour accompagner les changements.</li>
+          </ul>
+          <p>
+            Le nuage de points et le diagramme circulaire sont statiques. Il n’y
+            a pas de filtrage croisé entre graphiques.
+          </p>
+        </div>
+
+        <div class="analysis-block">
+          <h2>4. Couleurs et Repères</h2>
+          <div class="highlight-box">
+            <h4 style="color: #9b59b6; margin-bottom: 10px">
+              d3.schemeSet3 pour les genres
+            </h4>
+            <ul>
+              <li>Palette qualitative à 12 couleurs</li>
+              <li>Garantit une distinction visuelle entre genres</li>
+              <li>
+                Cohérence inter-graphiques (même genre = même couleur partout)
+              </li>
+            </ul>
+          </div>
+
+          <div class="highlight-box">
+            <h4 style="color: #9b59b6; margin-bottom: 10px">
+              Couleurs spécifiques pour les régions (Aires empilées)
+            </h4>
+            <ul>
+              <li>
+                <span style="color: #fffff">⬤</span>
+                <strong>#fffff</strong> (rouge coral) : Amérique du Nord
+              </li>
+              <li>
+                <span style="color: #4ecdc4">⬤</span>
+                <strong>#4ecdc4</strong> (turquoise) : Europe
+              </li>
+              <li>
+                <span style="color: #45b7d1">⬤</span>
+                <strong>#45b7d1</strong> (bleu ciel) : Japon
+              </li>
+              <li>
+                <span style="color: #96ceb4">⬤</span>
+                <strong>#96ceb4</strong> (vert menthe) : Autres régions
+              </li>
+            </ul>
+            <p style="margin-top: 10px">
+              Choix basés sur des teintes douces et distinguables, avec 80%
+              d'opacité pour la superposition
+            </p>
+          </div>
+
+          <h3>Repères visuels</h3>
+          <ul>
+            <li>
+              <strong>Grille et axes :</strong> Grille horizontale légère sur le
+              graphique en barres (tickSize négatif)
+            </li>
+            <li>
+              <strong>Labels :</strong> Axes avec labels tournés à -45° pour
+              éviter le chevauchement des noms
+            </li>
+            <li>
+              <strong>Police :</strong> Blanc pour contraster avec le fond
+              sombre (#2d2d2d)
+            </li>
+            <li>
+              <strong>Hiérarchie :</strong> Titres en gras blanc, bordures
+              noires (stroke-width: 2) sur le diagramme circulaire
+            </li>
+            <li>
+              <strong>Encodage taille :</strong> Nuage de points avec rayon ∝
+              √Global_Sales (échelle proportionnelle à la surface)
+            </li>
+          </ul>
+        </div>
+
+        <div class="analysis-block">
+          <h2>5. Avantages et Limites</h2>
+          <div class="pros-cons">
+            <div class="pros">
+              <h4>Avantages</h4>
+              <ul>
+                <li>Complémentarité des quatre vues</li>
+                <li>Interactions simples et claires</li>
+                <li>Bonne lisibilité et animations fluides</li>
+              </ul>
+            </div>
+            <div class="cons">
+              <h4>Limites</h4>
+              <ul>
+                <li>Top 20 uniquement en barres</li>
+                <li>Surcharge possible dans le nuage</li>
+                <li>Absence de filtrage croisé</li>
+                <li>Affichage peu adapté aux écrans réduits</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="analysis-block">
+          <h2>6. Tableau de McKinley</h2>
+          <p>
+            Récapitulatif des variables visuelles selon les types de données :
+          </p>
+          <table class="mckinley-table">
+            <thead>
+              <tr>
+                <th>Variable visuelle</th>
+                <th>Quantitative</th>
+                <th>Ordinale</th>
+                <th>Nominale</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="row-header">Position</td>
+                <td>Axes X et Y (barres, aires, nuage)</td>
+                <td>Ordre (classement)</td>
+                <td>Noms de jeux, régions</td>
+              </tr>
+              <tr>
+                <td class="row-header">Longueur</td>
+                <td>Hauteur des barres</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td class="row-header">Angle</td>
+                <td>Angles du diagramme circulaire</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td class="row-header">Aire</td>
+                <td>Aires empilées, taille des bulles</td>
+                <td>-</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td class="row-header">Teinte</td>
+                <td>-</td>
+                <td>-</td>
+                <td>Genres et régions</td>
+              </tr>
+              <tr>
+                <td class="row-header">Forme</td>
+                <td>-</td>
+                <td>-</td>
+                <td>Types de marqueurs</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="analysis-block">
+          <h2>7. Tendances Observées</h2>
+          <h3>Tendances géographiques</h3>
+          <div class="highlight-box">
+            <p><strong>Domination du marché nord-américain :</strong> Le graphique en barres révèle que les best-sellers 
+            mondiaux performent particulièrement en Amérique du Nord. Le nuage de points montre une forte corrélation 
+            positive NA/EU : les jeux qui marchent en Amérique du Nord réussissent généralement en Europe.</p>
+            
+            <p style="margin-top: 10px;"><strong>Spécificités du marché japonais :</strong> Le graphique en aires 
+            devrait montrer des pics distincts pour certaines périodes (années de sortie de consoles Nintendo). 
+            Le Japon représente souvent une part moins importante que NA/EU pour les titres occidentaux.</p>
+          </div>
+
+          <h3>Tendances temporelles</h3>
+          <div class="highlight-box">
+            <p><strong>Croissance puis stabilisation :</strong> Le graphique en aires empilées révèle probablement 
+            une croissance des ventes jusqu'aux années 2000-2010 (âge d'or PS2/Xbox 360/Wii). Possible déclin ensuite 
+            avec la montée du digital (non comptabilisé dans les ventes physiques).</p>
+            
+            <p style="margin-top: 10px;"><strong>Concentration des ventes :</strong> Les quelques années fastes 
+            représentent l'essentiel du volume. Effet "blockbuster" : quelques titres concentrent la majorité des ventes.</p>
+          </div>
+
+          <h3>Tendances par genre</h3>
+          <div class="highlight-box">
+            <p><strong>Genres dominants :</strong> Le diagramme circulaire identifie probablement Action et Sports 
+            comme genres majeurs. La diversité des genres s'observe via la palette de couleurs dans tous les graphiques.</p>
+            
+            <p style="margin-top: 10px;"><strong>Corrélation genre-région :</strong> Le nuage de points coloré par 
+            genre révèle si certains genres sont plus NA-centriques ou EU-centriques. Par exemple : Sports (FIFA, Madden) 
+            peuvent montrer deux clusters distincts.</p>
+          </div>
+
+          <h3>Distribution des performances</h3>
+          <div class="highlight-box">
+            <p><strong>Loi de puissance :</strong> Le top 20 concentre probablement une part disproportionnée des 
+            ventes totales. Le nuage de points montre une majorité de petites bulles (jeux peu vendus) et quelques 
+            bulles géantes (blockbusters).</p>
+            
+            <p style="margin-top: 10px;"><strong>Plateformes et années clés :</strong> Les tooltips révèlent que 
+            certaines plateformes (Wii, DS, PS2) dominent le classement. Concentration temporelle : années 2006-2010 
+            probablement surreprésentées dans le top 20.</p>
+          </div>
+
+          <div class="highlight-box" style="background: #3a4a3a; border-left: 3px solid #48bb78;">
+            <h4 style="color: #48bb78; margin-bottom: 15px;">💡 Conclusion</h4>
+            <p>
+              Cette visualisation offre une vue d'ensemble riche du marché du jeu vidéo, équilibrant analyse macro 
+              (évolutions temporelles, parts de marché) et micro (performances individuelles). Les améliorations 
+              prioritaires seraient l'ajout de brushing/linking entre graphiques et un design responsive pour 
+              maximiser l'accessibilité et la profondeur analytique.
+            </p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
