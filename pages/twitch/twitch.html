@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitch Data Analytics</title>
+    <link rel="stylesheet" href="twitch.css">
+</head>
+<body>
+    <!-- Section héro avec background -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">🎮 Twitch Analytics</h1>
+            <p class="hero-subtitle">Explorez les données des top streamers avec un graphique interactif</p>
+        </div>
+        <div class="scroll-indicator">⬇</div>
+    </section>
+
+    <!-- Section de visualisation -->
+    <section class="visualization-section">
+        <div id="container">
+            <header>
+                <h1>Twitch Streamers Bar Chart</h1>
+                <div class="controls">
+                    <button id="resetZoom">🔄 Reset Zoom</button>
+                    <button id="sortByFollowers">👥 Sort by Followers</button>
+                    <button id="sortByViewers">👀 Sort by Avg Viewers</button>
+                    
+                    <div class="streamer-count">
+                        <label>Top: 
+                            <input type="number" id="topCountInput" min="1" max="1000" value="25" placeholder="Nombre">
+                            <button id="validateTopCount" type="button">Valider</button>
+                        </label>
+                    </div>
+                    
+                    <div class="streamer-count">
+                        <label>Language: 
+                            <select id="languageFilter">
+                                <option value="all">All Languages</option>
+                            </select>
+                        </label>
+                    </div>
+                    
+                    <div class="streamer-count">
+                        <label>Min Followers: 
+                            <input type="range" id="followerFilter" min="0" max="20000000" value="0">
+                            <span id="followerValue">0</span>
+                        </label>
+                    </div>
+                </div>
+            </header>
+
+            <div id="visualization">
+                <div id="loadingMessage" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; font-size: 18px;">
+                    Loading data...
+                </div>
+            </div>
+
+            <div id="tooltip" class="tooltip"></div>
+            
+            <div id="infoPanel" class="info-panel">
+                <div class="panel-header">
+                    <h3>Streamer Details</h3>
+                    <button id="closePanel" style="background: transparent; color: #ff6b6b; border: none; font-size: 20px; cursor: pointer;">✕</button>
+                </div>
+                <div class="panel-content">
+                    <p>Click on a bar to see detailed information</p>
+                </div>
+            </div>
+        </div>  
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script src="twitch.js"></script>
+</body>
+</html>

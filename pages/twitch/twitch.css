@@ -1,0 +1,324 @@
+/* Styles généraux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0e0e10;
+    color: #efeff1;
+    line-height: 1.6;
+}
+
+/* Section d'accueil avec image */
+.hero-section {
+    height: 100vh;
+    background: linear-gradient(rgba(10, 2, 1,0.3), rgba(14, 14, 16, 0.9)), 
+                url('../../assets/images/twitch_wallpaper.png') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #9146ff, #00f5ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 20px rgba(145, 70, 255, 0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #adadb8;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    color: #9146ff;
+    font-size: 2rem;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* Section de visualisation */
+.visualization-section {
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+#container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #9146ff;
+}
+
+.controls {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+button {
+    background: #9146ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #7c3aed;
+}
+
+.streamer-count {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="number"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #3a3a3d;
+    background: #1f1f23;
+    color: white;
+    width: 80px;
+}
+
+/* Visualisation */
+#visualization {
+    width: 100%;
+    height: 600px;
+    background: #1f1f23;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Styles pour les barres */
+.bar {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.bar:hover {
+    opacity: 0.8;
+    filter: brightness(1.2);
+}
+
+/* Axes */
+.axis-label {
+    fill: #adadb8;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.x-axis text, .y-axis text {
+    fill: #adadb8;
+    font-size: 12px;
+}
+
+.x-axis path, .y-axis path,
+.x-axis line, .y-axis line {
+    stroke: #3a3a3d;
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    padding: 12px;
+    background: rgba(20, 20, 24, 0.95);
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 10;
+    border: 1px solid #9146ff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    max-width: 250px;
+}
+
+.tooltip.visible {
+    opacity: 1;
+}
+
+.tooltip strong {
+    color: #9146ff;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.tooltip span {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+
+/* Panel d'information */
+.info-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
+    background: #1f1f23;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    display: none;
+    border: 2px solid #9146ff;
+}
+
+.info-panel.active {
+    display: block;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #3a3a3d;
+    background: #9146ff;
+    border-radius: 10px 10px 0 0;
+}
+
+.panel-header h3 {
+    color: white;
+    margin: 0;
+}
+
+.panel-content {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.stat-card {
+    background: #2a2a2e;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #9146ff;
+}
+
+.stat-card h4 {
+    color: #adadb8;
+    font-size: 12px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-card .value {
+    color: #9146ff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.stat-card .subtext {
+    color: #adadb8;
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .controls {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .panel-content {
+        grid-template-columns: 1fr;
+    }
+    
+    #visualization {
+        height: 400px;
+    }
+}
+
+/* Styles pour les contrôles de filtre */
+select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #3a3a3d;
+    background: #1f1f23;
+    color: white;
+    min-width: 120px;
+}
+
+input[type="range"] {
+    width: 120px;
+    margin: 0 10px;
+}
+
+#followerValue {
+    min-width: 60px;
+    display: inline-block;
+    text-align: right;
+}
