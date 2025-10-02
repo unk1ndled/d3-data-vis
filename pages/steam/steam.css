@@ -15,7 +15,46 @@ body {
   margin-bottom: 30px;
 }
 
+/* Section Hero */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  background: url("/assets/images/steam.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
 
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 26, 26, 0.7); /* filtre sombre */
+}
+
+.hero-content {
+  position: relative;
+  text-align: center;
+  max-width: 800px;
+  padding: 20px;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 7em;
+  color: #66c0f4;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #e0e0e0;
+}
 
 h1 {
   color: #66c0f4;
