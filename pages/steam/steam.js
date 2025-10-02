@@ -183,7 +183,7 @@ function setupControls() {
     slider.max = maxYear;
   });
 
-  CONTROLS.yearFilter.value = 2010;
+  CONTROLS.yearFilter.value = 2012;
 
   CONTROLS.yearRangeMin.value = minYear;
   CONTROLS.yearRangeMax.value = maxYear;
