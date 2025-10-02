@@ -315,3 +315,138 @@ input[type="range"] {
     display: inline-block;
     text-align: right;
 }
+/* Section Commentaires */
+.comments-section {
+    background-color: #1a1a2e;
+    color: #e6e6e6;
+    padding: 60px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .comments-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .comments-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #9146FF; /* Couleur Twitch */
+    position: relative;
+  }
+  
+  .comments-section h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: #9146FF;
+    margin: 15px auto;
+  }
+  
+  .comment-block {
+    margin-bottom: 50px;
+    padding: 25px;
+    background-color: #16213e;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .comment-block h3 {
+    color: #9146FF;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #2d3748;
+    padding-bottom: 10px;
+  }
+  
+  .comment-block p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .comment-block ul {
+    padding-left: 20px;
+  }
+  
+  .comment-block li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  
+  /* Tableaux */
+  .table-container {
+    overflow-x: auto;
+    margin: 20px 0;
+  }
+  
+  .comments-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #1a1a2e;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .comments-section th {
+    background-color: #9146FF;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+  }
+  
+  .comments-section td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #2d3748;
+  }
+  
+  .comments-section tr:nth-child(even) {
+    background-color: #1f2a44;
+  }
+  
+  .comments-section tr:hover {
+    background-color: #2d3748;
+  }
+  
+  /* Avantages et limites */
+  .pros-cons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  .pros, .cons {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .pros h4 {
+    color: #4CAF50; /* Vert pour les avantages */
+  }
+  
+  .cons h4 {
+    color: #f44336; /* Rouge pour les limites */
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .comments-section {
+      padding: 40px 15px;
+    }
+    
+    .comments-section h2 {
+      font-size: 2rem;
+    }
+    
+    .comment-block {
+      padding: 15px;
+    }
+    
+    .pros-cons {
+      flex-direction: column;
+    }
+  }

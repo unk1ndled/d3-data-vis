@@ -116,6 +116,219 @@
       </div>
     </section>
 
+    <!-- Section Commentaires -->
+    <section class="comments-section">
+      <div class="comments-container">
+        <h2>Analyse et Commentaires</h2>
+        
+        <div class="comment-block">
+          <h3>Objectif de l'analyse</h3>
+          <p>
+            Nous avons souhaité analyser les performances des streamers les plus populaires sur la plateforme Twitch. 
+            Pour cela, nous avons comparé plusieurs métriques clés : le nombre de followers, les viewers moyens.
+          </p>
+        </div>
+
+        <div class="comment-block">
+          <h3>Choix de visualisation</h3>
+          <p>
+            Afin de représenter ces données, nous avons opté pour un graphique en barres interactif avec fonctionnalité de zoom. 
+            Cette solution nous semblait la plus pertinente pour comparer un grand nombre de streamers tout en gardant une bonne lisibilité. 
+            Le tri dynamique permet de basculer entre deux perspectives d'analyse : la popularité globale (followers) ou l'audience active (viewers moyens).
+          </p>
+        </div>
+
+        <div class="comment-block">
+          <h3>Variables étudiées</h3>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Type/Echelle de mesure</th>
+                  <th>Variables Visuelles présentes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Nom du Streamer</td>
+                  <td>Nominale</td>
+                  <td>Position (Axe X)</td>
+                </tr>
+                <tr>
+                  <td>Followers / Viewers moyens</td>
+                  <td>Quantitative (échelle rapport)</td>
+                  <td>Position (Axe Y), Longueur (hauteur de barre)</td>
+                </tr>
+                <tr>
+                  <td>Viewers moyens</td>
+                  <td>Quantitative (échelle rapport)</td>
+                  <td>Teinte (couleur via échelle Viridis)</td>
+                </tr>
+                <tr>
+                  <td>Langue</td>
+                  <td>Nominale</td>
+                  <td>Filtre interactif</td>
+                </tr>
+                <tr>
+                  <td>Temps de stream</td>
+                  <td>Quantitative (échelle rapport)</td>
+                  <td>Tooltip</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="comment-block">
+          <h3>Tableau de McKinley</h3>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Quantitative</th>
+                  <th>Ordinale</th>
+                  <th>Nominale</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Position (Followers/Viewers)</td>
+                  <td>Position</td>
+                  <td>Position</td>
+                  <td>Position (Noms)</td>
+                </tr>
+                <tr>
+                  <td>Longueur (hauteur barre)</td>
+                  <td>Longueur</td>
+                  <td>Luminosité</td>
+                  <td>Teinte (Viewers via couleur)</td>
+                </tr>
+                <tr>
+                  <td>Angle</td>
+                  <td>Angle</td>
+                  <td>Saturation</td>
+                  <td>Texture</td>
+                </tr>
+                <tr>
+                  <td>Aire</td>
+                  <td>Aire</td>
+                  <td>Teinte</td>
+                  <td>Luminosité</td>
+                </tr>
+                <tr>
+                  <td>Volume</td>
+                  <td>Volume</td>
+                  <td>Texture</td>
+                  <td>Saturation</td>
+                </tr>
+                <tr>
+                  <td>Luminosité</td>
+                  <td>Luminosité</td>
+                  <td>Longueur</td>
+                  <td>Forme</td>
+                </tr>
+                <tr>
+                  <td>Saturation</td>
+                  <td>Saturation</td>
+                  <td>Angle</td>
+                  <td>Longueur</td>
+                </tr>
+                <tr>
+                  <td>Teinte</td>
+                  <td>Teinte</td>
+                  <td>Aire</td>
+                  <td>Angle</td>
+                </tr>
+                <tr>
+                  <td>Texture</td>
+                  <td>Texture</td>
+                  <td>Volume</td>
+                  <td>Aire</td>
+                </tr>
+                <tr>
+                  <td>Forme</td>
+                  <td>Forme</td>
+                  <td>Forme</td>
+                  <td>Volume</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="comment-block">
+          <h3>Interactions disponibles</h3>
+          <ul>
+            <li>Zoom dynamique pour explorer les détails</li>
+            <li>Tri par followers ou viewers moyens</li>
+            <li>Sélection du nombre de streamers à afficher (Top N)</li>
+            <li>Filtres par langue et seuil minimum de followers</li>
+            <li>Tooltip au survol affichant toutes les métriques</li>
+            <li>Panneau de détails au clic</li>
+          </ul>
+        </div>
+
+        <div class="comment-block">
+          <h3>Choix de la couleur</h3>
+          <p>
+            Nous avons utilisé l'échelle Viridis qui va du violet au jaune. Cette palette perceptuellement uniforme encode les viewers moyens : 
+            les teintes froides (violet/bleu) représentent les audiences faibles, les teintes chaudes (jaune/vert) les audiences élevées. 
+            Cette échelle a été choisie pour sa lisibilité et son accessibilité pour les personnes daltoniennes.
+          </p>
+        </div>
+
+        <div class="comment-block">
+          <h3>Avantages et limites</h3>
+          <div class="pros-cons">
+            <div class="pros">
+              <h4>Avantages :</h4>
+              <ul>
+                <li>Vue d'ensemble immédiate du classement des streamers</li>
+                <li>Comparaison directe facilitée grâce aux barres</li>
+                <li>Le zoom et les filtres permettent de gérer un grand volume de données sans surcharge visuelle</li>
+                <li>Possibilité de basculer entre différentes métriques pour des analyses complémentaires</li>
+                <li>Les tooltips et le panneau de détails offrent un accès progressif à l'information</li>
+                <li>Les filtres par langue permettent d'analyser des sous-populations spécifiques</li>
+              </ul>
+            </div>
+            <div class="cons">
+              <h4>Limites :</h4>
+              <ul>
+                <li>L'ordre de tri influence fortement la perception des données</li>
+                <li>L'encodage couleur (viewers moyens) peut passer au second plan par rapport à la hauteur de barre</li>
+                <li>Sans zoom, difficile d'afficher plus de 30-40 barres lisiblement</li>
+                <li>Pour connaître les valeurs exactes, il faut consulter le tooltip</li>
+                <li>Le graphique ne montre pas directement les corrélations entre variables</li>
+                <li>Pas de visualisation de l'évolution temporelle, seulement un instantané</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="comment-block">
+          <h3>Analyse des résultats</h3>
+          <p>
+            L'analyse révèle une concentration extrême de la popularité sur Twitch. Les top streamers captent une part disproportionnée de l'audience, 
+            avec des écarts pouvant atteindre un facteur de 5 à 10 entre le premier et le 25ème. Cette distribution suit une loi de puissance typique des plateformes de contenu.
+          </p>
+          <p>
+            Concernant la diversité linguistique, l'anglais ne domine pas totalement. Des communautés fortes existent en espagnol, portugais, français et coréen, 
+            avec plusieurs streamers non-anglophones dans le top 50 mondial.
+          </p>
+          <p>
+            L'encodage couleur révèle que followers et viewers ne sont pas parfaitement corrélés. Certains streamers avec beaucoup de followers ont des audiences moyennes faibles 
+            (comptes inactifs ou anciennes gloires), tandis que d'autres maintiennent un excellent ratio engagement/followers, indiquant une communauté très active.
+          </p>
+          <p>
+            Les streamers brésiliens et hispanophones montrent une croissance particulièrement forte. On observe aussi que certains streamers avec un temps de streaming très élevé 
+            compensent des viewers moyens plus faibles par une présence constante, atteignant des watch times totaux impressionnants.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <script src="/common/nav.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
