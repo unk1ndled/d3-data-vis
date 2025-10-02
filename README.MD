@@ -1,4 +1,3 @@
-
 # Projet Visualisations Gaming avec D3
 
 Ce projet propose des **visualisations interactives avec D3.js** centrées sur les données liées aux jeux vidéo. Il comprend des pages pour les statistiques Steam, l’analytics Twitch, les ventes de jeux, et plus encore. L’objectif est de créer une page d’accueil interactive et visuellement attrayante avec des données pour les gamers.
@@ -42,4 +41,13 @@ Sans Node.js, il est impossible de lancer le serveur de développement local pou
 ```bash
 npx vite
 ```
+
 3. Ouvrez votre navigateur à l’adresse indiquée par Vite (généralement http://localhost:5173).
+
+---
+
+## Membres
+
+- **N’GUESSAN DJESSE** ANGE RODDY
+- **SALMANE** Mohammed Amine
+- **AMESSEGHER** Aymane
