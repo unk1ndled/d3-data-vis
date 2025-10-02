@@ -96,6 +96,275 @@
           </div>
         </div>
       </div>
+      <!-- Documentation Section -->
+      <div class="documentation">
+        <div class="doc-section">
+          <h2>Commentaires</h2>
+          <p>
+            Nous avons souhaité observer la relation entre les évaluations des
+            joueurs (ratings), le temps de jeu moyen, et le prix des jeux vidéo
+            sur la plateforme Steam. Pour y parvenir, nous avons sélectionné
+            quatre variables principales : le temps de jeu moyen (axe
+            horizontal), le pourcentage d'évaluations positives (axe vertical),
+            le prix (représenté par la couleur), et le nombre de propriétaires
+            (représenté par la taille des cercles).
+          </p>
+          <p>
+            Notre première réflexion portait sur une représentation en
+            histogrammes ou en diagrammes à barres. Toutefois, avec plusieurs
+            milliers de jeux dans la base de données Steam, il aurait été
+            difficile d'avoir une vision d'ensemble claire. Cela nous a amenés à
+            considérer le nuage de points (scatter plot) comme solution
+            optimale. Ainsi, nous pouvons observer simultanément les
+            corrélations entre quatre dimensions de données tout en gardant la
+            possibilité d'explorer individuellement chaque jeu.
+          </p>
+          <p>
+            Pour répondre au besoin d'explorer l'évolution temporelle de
+            l'industrie du jeu vidéo, nous avons intégré des filtres par année
+            de sortie. Les jeux peuvent être filtrés soit par année spécifique,
+            soit par plage d'années, permettant d'analyser les tendances
+            historiques. Un filtre de prix supplémentaire permet de se
+            concentrer sur des segments de marché particuliers.
+          </p>
+        </div>
+
+        <div class="doc-section">
+          <h2>Choix de Visualisation</h2>
+          <div class="variable-table">
+            <h3>Variables et Encodages Visuels</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Type/Échelle</th>
+                  <th>Encodage Visuel</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Temps de jeu moyen</td>
+                  <td>Quantitatif (Ratio)</td>
+                  <td>Position X (horizontale)</td>
+                </tr>
+                <tr>
+                  <td>Évaluations positives</td>
+                  <td>Quantitatif (Ratio)</td>
+                  <td>Position Y (verticale)</td>
+                </tr>
+                <tr>
+                  <td>Prix</td>
+                  <td>Quantitatif (Ratio)</td>
+                  <td>Teinte (Vert → Orange → Rouge)</td>
+                </tr>
+                <tr>
+                  <td>Nombre de propriétaires</td>
+                  <td>Quantitatif (Ratio)</td>
+                  <td>Aire (taille des cercles)</td>
+                </tr>
+                <tr>
+                  <td>Année de sortie</td>
+                  <td>Ordinale</td>
+                  <td>Filtres interactifs</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Tableau de McKinley</h3>
+          <p>
+            Ci-dessous, le tableau de McKinley détaillant les variables
+            visuelles utilisées pour chaque dimension de données :
+          </p>
+          <div class="mckinley-table">
+            <table>
+              <thead>
+                <tr>
+                  <th rowspan="2">Type de Données</th>
+                  <th colspan="10">Variables Visuelles</th>
+                </tr>
+                <tr>
+                  <th>Position</th>
+                  <th>Longueur</th>
+                  <th>Angle</th>
+                  <th>Aire</th>
+                  <th>Volume</th>
+                  <th>Teinte</th>
+                  <th>Luminosité</th>
+                  <th>Saturation</th>
+                  <th>Forme</th>
+                  <th>Texture</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Quantitatif</strong></td>
+                  <td class="used">
+                    ✓<br /><small
+                      >Temps de jeu (X)<br />Éval. positives (Y)</small
+                    >
+                  </td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td class="used">✓<br /><small>Nb propriétaires</small></td>
+                  <td>-</td>
+                  <td class="used">✓<br /><small>Prix</small></td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td><strong>Ordinal</strong></td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td><strong>Nominal</strong></td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td class="used">✓<br /><small>Cercles</small></td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Choix des Couleurs</h3>
+          <p>
+            La palette de couleurs a été choisie selon une échelle séquentielle
+            allant du vert (prix bas) au rouge (prix élevé), en passant par
+            l'orange pour les prix moyens. Ce choix s'appuie sur des
+            associations culturelles intuitives : le vert évoque l'accessibilité
+            et l'abordabilité, tandis que le rouge signale un coût plus élevé.
+            L'opacité a été fixée à 70% pour permettre la visualisation des
+            superpositions et révéler les zones de forte densité de jeux.
+          </p>
+        </div>
+
+        <div class="doc-section">
+          <h2>Avantages et Limites</h2>
+
+          <div class="advantages">
+            <h3>✓ Avantages</h3>
+            <ul>
+              <li>
+                <strong>Vue d'ensemble rapide :</strong> Il est possible de voir
+                d'un coup d'œil les tendances générales de l'industrie
+                (corrélation entre temps de jeu et satisfaction, distribution
+                des prix).
+              </li>
+              <li>
+                <strong>Multidimensionalité :</strong> Quatre variables
+                quantitatives sont représentées simultanément sans surcharger la
+                visualisation.
+              </li>
+              <li>
+                <strong>Interactivité avancée :</strong> Le zoom et le
+                panoramique permettent d'explorer différentes plages de valeurs
+                en détail.
+              </li>
+              <li>
+                <strong>Filtrage temporel :</strong> Les filtres par année
+                permettent d'analyser l'évolution de l'industrie et de comparer
+                différentes périodes.
+              </li>
+              <li>
+                <strong>Tooltips informatifs :</strong> Au survol, toutes les
+                informations détaillées d'un jeu sont accessibles sans encombrer
+                la visualisation.
+              </li>
+              <li>
+                <strong>Identification des outliers :</strong> Les jeux
+                atypiques (très populaires, très chers, très bien notés) sont
+                immédiatement visibles.
+              </li>
+            </ul>
+          </div>
+
+          <div class="limitations">
+            <h3>✗ Limites</h3>
+            <ul>
+              <li>
+                <strong>Surcharge visuelle :</strong> Avec des milliers de
+                points, certaines zones peuvent devenir saturées et difficiles à
+                lire (d'où l'importance du zoom).
+              </li>
+              <li>
+                <strong>Occultation :</strong> Les jeux avec peu de
+                propriétaires (petits cercles) peuvent être masqués par des jeux
+                plus populaires (grands cercles).
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="doc-section analysis">
+          <h2>Analyse</h2>
+          <p>
+            L'analyse des données Steam révèle plusieurs tendances intéressantes
+            dans l'industrie du jeu vidéo :
+          </p>
+
+          <h3>Corrélation entre évaluation et temps de jeu</h3>
+          <p>
+            On observe généralement une corrélation positive entre le temps de
+            jeu moyen et les évaluations positives. Les jeux qui retiennent les
+            joueurs plus longtemps tendent à recevoir de meilleures évaluations,
+            suggérant que l'engagement du joueur est un indicateur clé de
+            qualité perçue.
+          </p>
+
+          <h3>Structure des prix</h3>
+          <p>
+            La distribution des prix montre une concentration importante de jeux
+            à bas prix (zone verte), reflétant la popularité des jeux
+            indépendants et des titres accessibles. Les jeux premium (zone
+            rouge) sont moins nombreux mais souvent associés à des nombres de
+            propriétaires plus élevés (cercles plus grands), indiquant des
+            productions AAA bien établies.
+          </p>
+
+          <h3>Jeux populaires vs jeux de niche</h3>
+          <p>
+            Les plus grands cercles représentent les blockbusters avec des
+            millions de propriétaires. Intéressant de noter que ces jeux ne sont
+            pas nécessairement les mieux notés, suggérant que la popularité et
+            la qualité perçue ne sont pas toujours corrélées.
+          </p>
+
+          <h3>Évolution temporelle</h3>
+          <p>
+            En filtrant par années, on peut observer l'évolution de l'industrie
+            : augmentation du nombre de sorties au fil du temps, diversification
+            des prix, et potentiellement une amélioration générale des
+            évaluations grâce aux retours de la communauté et aux mises à jour
+            post-lancement.
+          </p>
+
+          <h3>Jeux gratuits (Free-to-Play)</h3>
+          <p>
+            Les jeux à prix zéro (extrémité verte de l'échelle) présentent une
+            grande variabilité dans les évaluations et le temps de jeu,
+            reflétant la diversité des modèles économiques free-to-play, du
+            succès critique aux pratiques controversées.
+          </p>
+        </div>
+      </div>
     </main>
 
     <!-- Global nav script -->

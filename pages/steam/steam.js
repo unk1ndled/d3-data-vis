@@ -357,14 +357,14 @@ function handleMouseOver(event, d) {
             Owners: ${d.owners.toLocaleString()}
         `
     )
-    .style("left", `${event.pageX + 15}px`)
-    .style("top", `${event.pageY - 10}px`);
+    .style("left", `${event.pageX - 200}px`)
+    .style("top", `${event.pageY - 300}px`);
 }
 
 function handleMouseMove(event) {
   STATE.tooltip
-    .style("left", `${event.pageX + 15}px`)
-    .style("top", `${event.pageY - 10}px`);
+    .style("left", `${event.pageX - 200}px`)
+    .style("top", `${event.pageY - 300}px`);
 }
 
 function handleMouseOut() {
