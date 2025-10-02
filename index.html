@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <title>D3 Gaming Project</title>
+    <title>Visualisation du Jeu Vidéo avec D3.js</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="common/nav.css" />
   </head>
@@ -10,61 +10,49 @@
     <header>
       <div id="navbar"></div>
       <div class="hero">
+      <div class="hero-content">
         <h1>Visualisation de Données du Jeu Vidéo</h1>
         <p>
-          Exploration interactive des tendances de l'industrie vidéoludique à
-          travers des visualisations basées sur D3.js
+          Exploration interactive de l'industrie vidéoludique à travers des visualisations dynamiques
         </p>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <main>
-      <div class="card">
-        <h2>Pourquoi visualiser les données du jeu vidéo ?</h2>
+  <main>
+    <div class="card">
+      <h2>Pourquoi visualiser ces données ?</h2>
+      <p>
+        L'industrie vidéoludique produit une masse considérable de données : ventes, audiences, critiques, temps de jeu. Leur visualisation permet de transformer ces chiffres en représentations intelligibles, facilitant ainsi l'analyse et la compréhension de tendances complexes.
+      </p>
+    </div>
 
-        <p>
-          L'industrie du jeu vidéo génère une quantité massive de données :
-          prix, évaluations des joueurs, temps de jeu, dates de sortie, nombre
-          de propriétaires. Ces informations, prises isolément, restent
-          difficiles à interpréter. La visualisation de données transforme ces
-          chiffres bruts en représentations graphiques intuitives qui révèlent
-          des tendances cachées et facilitent la prise de décision.
-        </p>
+    <div class="card">
+      <h2>Trois axes d'analyse</h2>
+      <section class="features">
+        <ul>
+          <li>
+            <strong>Steam :</strong> découvrir l'évolution des jeux selon leur prix, leur popularité et leurs évaluations.
+          </li>
+          <li>
+            <strong>Twitch :</strong> analyser la dynamique du streaming en temps réel, les communautés et la visibilité des titres.
+          </li>
+          <li>
+            <strong>Ventes mondiales :</strong> étudier la répartition des ventes par région, par console et par genre sur plusieurs décennies.
+          </li>
+        </ul>
+      </section>
+    </div>
 
-        <p>
-          Pour les développeurs et éditeurs, comprendre la relation entre le
-          prix d'un jeu, sa réception critique et son succès commercial est
-          crucial. Les visualisations permettent d'identifier rapidement quels
-          segments de marché sont saturés, quels modèles tarifaires fonctionnent
-          le mieux, et comment les jeux évoluent dans le temps. Par exemple,
-          observer qu'un jeu à bas prix avec des évaluations exceptionnelles
-          attire plus de joueurs qu'un titre premium peut orienter les
-          stratégies de monétisation.
-        </p>
-
-        <p>
-          Pour les joueurs et analystes, ces visualisations offrent une
-          perspective unique sur l'écosystème Steam. On peut découvrir des
-          perles méconnues, identifier les jeux surévalués, comprendre les
-          dynamiques de popularité, ou simplement explorer les tendances
-          historiques de l'industrie depuis près de trois décennies.
-          L'interactivité des graphiques D3.js permet à chacun de filtrer,
-          zoomer et personnaliser son exploration selon ses centres d'intérêt.
-        </p>
-
-        <p>
-          Ce projet applique les principes fondamentaux de la visualisation
-          d'information pour rendre ces données accessibles et exploitables. En
-          utilisant judicieusement la position, la couleur et la taille, nous
-          encodons plusieurs dimensions simultanément, permettant une lecture
-          multidimensionnelle des données qui serait impossible dans un simple
-          tableau ou une liste.
-        </p>
-      </div>
-    </main>
-
+    <div class="card">
+      <h2>Méthodologie</h2>
+      <p>
+        Ce projet s'appuie sur les principes de la visualisation d'information. En combinant position, taille et couleur, chaque graphique encode plusieurs dimensions à la fois. L'interactivité offerte par D3.js permet au lecteur de filtrer, zoomer et explorer selon ses propres centres d'intérêt.
+      </p>
+    </div>
+  </main>
     <footer>
-      <p>&copy; 2025 INFO5 - Projet de Visualisation de Données</p>
+      <p>&copy; 2025 INFO5 – Projet de Visualisation de Données</p>
     </footer>
 
     <script src="common/nav.js"></script>
